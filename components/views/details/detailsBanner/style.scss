@@ -1,0 +1,278 @@
+@import "../../../mixins.scss";
+
+.detailsBanner {
+    width: 100%;
+    background-color: var(--black);
+    padding-top: 100px;
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+
+    @include md {
+        margin-bottom: 0;
+        padding-top: 120px;
+        min-height: 700px;
+    }
+    .backdrop-img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.35;
+        overflow: hidden;
+        animation: subtleZoom 25s infinite alternate ease-in-out;
+
+        .lazy-load-image-background {
+            width: 100%;
+            height: 100%;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center 20%;
+            }
+        }
+    }
+    .opacity-layer {
+        width: 100%;
+        height: 250px;
+        background: linear-gradient(
+            180deg,
+            rgba(4, 21, 45, 0) 0%,
+            #04152d 79.17%
+        );
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .content {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 25px;
+        animation: contentFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+        @include md {
+            gap: 50px;
+            flex-direction: row;
+            align-items: flex-start;
+        }
+        .left {
+            flex-shrink: 0;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+            .posterImg {
+                width: 100%;
+                display: block;
+                border-radius: 14px;
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(218, 47, 104, 0.2);
+                transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+                @include md {
+                    max-width: 350px;
+                }
+            }
+
+            &:hover {
+                transform: scale(1.03) rotate(0.5deg);
+                .posterImg {
+                    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 35px rgba(218, 47, 104, 0.4);
+                }
+            }
+        }
+        .right {
+            color: white;
+            .title {
+                font-size: 28px;
+                line-height: 40px;
+                font-weight: 700;
+                letter-spacing: -0.5px;
+                @include md {
+                    font-size: 36px;
+                    line-height: 46px;
+                }
+            }
+            .subtitle {
+                font-size: 16px;
+                line-height: 24px;
+                margin-bottom: 15px;
+                font-style: italic;
+                opacity: 0.65;
+                @include md {
+                    font-size: 20px;
+                    line-height: 28px;
+                }
+            }
+            .genres {
+                margin-bottom: 25px;
+                flex-flow: row wrap;
+                gap: 6px;
+            }
+            .overview {
+                margin-bottom: 25px;
+                .heading {
+                    font-size: 24px;
+                    font-weight: 600;
+                    margin-bottom: 10px;
+                    color: var(--orange);
+                }
+                .description {
+                    line-height: 26px;
+                    color: rgba(255, 255, 255, 0.85);
+                    @include md {
+                        padding-right: 80px;
+                    }
+                }
+            }
+            .circleRating {
+                max-width: 70px;
+                background-color: var(--black2);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+                transition: transform 0.3s ease;
+                @include md {
+                    max-width: 90px;
+                }
+                .CircularProgressbar-text {
+                    fill: white;
+                }
+                &:hover {
+                    transform: scale(1.08);
+                }
+            }
+            .playbtn {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                cursor: pointer;
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 50px;
+                padding: 6px 24px 6px 10px;
+                transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+                svg {
+                    width: 50px;
+                    height: 50px;
+                    @include md {
+                        width: 65px;
+                        height: 65px;
+                    }
+                }
+                .text {
+                    font-size: 18px;
+                    font-weight: 600;
+                    transition: color 0.3s ease;
+                }
+                .triangle {
+                    stroke-dasharray: 240;
+                    stroke-dashoffset: 480;
+                    stroke: white;
+                    transform: translateY(0);
+                    transition: all 0.7s ease-in-out;
+                }
+                .circle {
+                    stroke: white;
+                    stroke-dasharray: 650;
+                    stroke-dashoffset: 1300;
+                    transition: all 0.5s ease-in-out;
+                }
+                &:hover {
+                    background: var(--gradient);
+                    border-color: transparent;
+                    transform: scale(1.05);
+                    box-shadow: 0 8px 25px rgba(218, 47, 104, 0.5);
+
+                    .text {
+                        color: #ffffff;
+                    }
+                    .triangle {
+                        stroke-dashoffset: 0;
+                        opacity: 1;
+                        stroke: #ffffff;
+                    }
+                    .circle {
+                        stroke-dashoffset: 0;
+                        stroke: #ffffff;
+                    }
+                }
+                &:active {
+                    transform: scale(0.97);
+                }
+            }
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 25px;
+                margin-bottom: 25px;
+            }
+
+            .info {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 15px 0;
+                display: flex;
+                .infoItem {
+                    margin-right: 15px;
+                    display: flex;
+                    flex-flow: row wrap;
+                }
+                .text {
+                    margin-right: 10px;
+                    opacity: 0.6;
+                    line-height: 24px;
+                    &.bold {
+                        font-weight: 600;
+                        opacity: 1;
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+
+    .detailsBannerSkeleton {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        gap: 25px;
+        @include md {
+            gap: 50px;
+            flex-direction: row;
+        }
+        .contentWrapper {
+            display: flex;
+            gap: 50px;
+        }
+        .left {
+            flex-shrink: 0;
+            width: 100%;
+            display: block;
+            border-radius: 12px;
+            aspect-ratio: 1/1.5;
+            @include md {
+                max-width: 350px;
+            }
+        }
+        .right {
+            width: 100%;
+            .row {
+                width: 100%;
+                height: 25px;
+                margin-bottom: 20px;
+                border-radius: 50px;
+                &:nth-child(2) {
+                    width: 75%;
+                    margin-bottom: 50px;
+                }
+                &:nth-child(5) {
+                    width: 50%;
+                    margin-bottom: 50px;
+                }
+            }
+        }
+    }
+}

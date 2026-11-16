@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="nmBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1527"/>
+      <stop offset="100%" stop-color="#020914"/>
+    </linearGradient>
+
+    <!-- Sunset Gradient (Crimson Pink to Amber Orange) -->
+    <linearGradient id="nmSunset" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#da2f68"/>
+      <stop offset="50%" stop-color="#ea4c46"/>
+      <stop offset="100%" stop-color="#f89e00"/>
+    </linearGradient>
+
+    <!-- Mirror Diagonal Facet Gradient -->
+    <linearGradient id="nmMirror" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f89e00"/>
+      <stop offset="60%" stop-color="#ff5e62"/>
+      <stop offset="100%" stop-color="#da2f68"/>
+    </linearGradient>
+
+    <!-- Outer Glow -->
+    <filter id="nmGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="nmShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#da2f68" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Squircle Base with Border -->
+  <rect x="24" y="24" width="464" height="464" rx="112" fill="url(#nmBg)"/>
+  <rect x="24" y="24" width="464" height="464" rx="112" fill="none" stroke="#f89e00" stroke-width="3.5" stroke-opacity="0.3"/>
+
+  <!-- Icon Group with Glow -->
+  <g filter="url(#nmGlow)">
+    <!-- Left Vertical Pillar of 'N' -->
+    <rect x="148" y="128" width="56" height="256" rx="14" fill="url(#nmSunset)"/>
+
+    <!-- Right Vertical Pillar of 'N' -->
+    <rect x="308" y="128" width="56" height="256" rx="14" fill="url(#nmSunset)"/>
+
+    <!-- Dynamic Diagonal Mirror Ribbon crossing between pillars -->
+    <path d="M 152 144 L 358 358 C 365 365 364 374 354 378 L 314 382 C 304 382 296 376 290 370 L 146 158 C 140 150 144 140 152 144 Z" fill="url(#nmMirror)" filter="url(#nmShadow)"/>
+
+    <!-- Subtle Center Mirror Reflection Accent -->
+    <polygon points="204,188 256,252 240,270 188,206" fill="#ffffff" opacity="0.22"/>
+  </g>
+</svg>

@@ -1,4 +1,4 @@
-FROM node:18-alpine as build
+FROM node:20-alpine AS runner
 
 WORKDIR /app
 
@@ -10,8 +10,10 @@ COPY . .
 
 RUN npm run build
 
-ENV HOST=0.0.0.0
+ENV NODE_ENV=production
+ENV PORT=3000
+ENV HOSTNAME=0.0.0.0
 
-EXPOSE 4173
+EXPOSE 3000
 
-CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "4173"]
+CMD ["npm", "start"]

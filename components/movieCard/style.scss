@@ -1,0 +1,221 @@
+@import "../../mixins.scss";
+
+.movieCard {
+    width: calc(50% - 5px);
+    margin-bottom: 25px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    position: relative;
+
+    @include md {
+        width: calc(25% - 15px);
+    }
+    @include lg {
+        width: calc(20% - 16px);
+    }
+
+    .posterBlock {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1 / 1.5;
+        background-size: cover;
+        background-position: center;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding: 10px;
+        border-radius: 12px;
+        overflow: visible;
+        transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+
+        .lazy-load-image-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: box-shadow 0.35s ease, filter 0.35s ease;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                transition: transform 0.5s ease;
+            }
+        }
+
+        .circleRating {
+            width: 40px;
+            height: 40px;
+            position: relative;
+            top: 30px;
+            background-color: white;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.35s ease;
+
+            @include md {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        .genres {
+            display: none;
+            position: relative;
+            @include md {
+                display: flex;
+                flex-flow: wrap;
+                justify-content: flex-end;
+                gap: 4px;
+            }
+        }
+    }
+
+    .textBlock {
+        color: white;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease;
+
+        .title {
+            font-size: 16px;
+            margin-bottom: 6px;
+            line-height: 24px;
+            transition: color 0.3s ease;
+            @include ellipsis(1);
+            @include md {
+                font-size: 18px;
+            }
+        }
+        .date {
+            font-size: 13px;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+    }
+
+    /* Interactivity Hover Effects */
+    &:hover {
+        transform: translateY(-8px);
+
+        .posterBlock {
+            .lazy-load-image-background {
+                box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(218, 47, 104, 0.3);
+
+                img {
+                    transform: scale(1.06);
+                }
+            }
+
+            .circleRating {
+                transform: scale(1.08);
+            }
+        }
+
+        .textBlock {
+            .title {
+                color: var(--pink);
+            }
+            .date {
+                opacity: 0.9;
+            }
+        }
+    }
+
+    &:active {
+        transform: translateY(-3px) scale(0.98);
+    }
+}
+
+.tvCard {
+    width: calc(50% - 5px);
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+
+    @include md {
+        width: calc(25% - 15px);
+    }
+    @include lg {
+        width: calc(20% - 16px);
+    }
+
+    .posterBlock {
+        position: relative;
+        aspect-ratio: 1 / 1.2;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+
+        .lazy-load-image-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                object-position: center;
+                padding: 12px;
+                transition: transform 0.4s ease;
+            }
+        }
+    }
+
+    .textBlock {
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+
+        .title {
+            font-size: 15px;
+            line-height: 22px;
+            text-align: center;
+            transition: color 0.3s ease;
+            @include ellipsis(1);
+            @include md {
+                font-size: 16px;
+            }
+        }
+    }
+
+    &:hover {
+        transform: translateY(-6px);
+
+        .posterBlock {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(248, 158, 0, 0.4);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5), 0 0 15px rgba(248, 158, 0, 0.25);
+
+            img {
+                transform: scale(1.1);
+            }
+        }
+
+        .textBlock .title {
+            color: var(--orange);
+        }
+    }
+
+    &:active {
+        transform: translateY(-2px) scale(0.98);
+    }
+}

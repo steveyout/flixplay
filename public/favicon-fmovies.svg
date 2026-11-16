@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="fmBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a192f"/>
+      <stop offset="100%" stop-color="#030c1a"/>
+    </linearGradient>
+
+    <!-- Cyan / Teal Neon Gradient -->
+    <linearGradient id="fmCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe"/>
+      <stop offset="50%" stop-color="#00c6ff"/>
+      <stop offset="100%" stop-color="#0072ff"/>
+    </linearGradient>
+
+    <!-- Play Arrow Accent Gradient -->
+    <linearGradient id="fmAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f5ff"/>
+      <stop offset="100%" stop-color="#00d2ff"/>
+    </linearGradient>
+
+    <!-- Outer Glow -->
+    <filter id="fmGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="14" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#00f2fe" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Squircle Base with Border -->
+  <rect x="24" y="24" width="464" height="464" rx="112" fill="url(#fmBg)"/>
+  <rect x="24" y="24" width="464" height="464" rx="112" fill="none" stroke="#00f2fe" stroke-width="4" stroke-opacity="0.25"/>
+
+  <!-- Icon Group with Glow -->
+  <g filter="url(#fmGlow)">
+    <!-- Main Stylized 'F' Vertical Spine -->
+    <path d="M 150 145 C 150 135 158 126 170 126 L 310 126 C 322 126 332 135 332 147 C 332 159 322 168 310 168 L 192 168 L 192 236 L 275 236 C 287 236 296 245 296 257 C 296 269 287 278 275 278 L 192 278 L 192 365 C 192 378 181 388 168 388 C 155 388 150 378 150 365 Z" fill="url(#fmCyan)"/>
+
+    <!-- Integrated Forward Play Triangle -->
+    <path d="M 245 190 L 370 256 C 382 262 382 276 370 282 L 245 348 C 232 355 218 346 218 332 L 218 206 C 218 192 232 183 245 190 Z" fill="url(#fmAccent)" opacity="0.95" filter="url(#softShadow)"/>
+    
+    <!-- Cutout inner reflection for crisp 3D play feel -->
+    <polygon points="252,228 334,269 252,310" fill="#051326" opacity="0.85"/>
+  </g>
+</svg>

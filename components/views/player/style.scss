@@ -1,0 +1,345 @@
+.player {
+  position: relative;
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #04152d;
+
+  .backdrop1-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.12;
+    overflow: hidden;
+    animation: subtleZoom 30s infinite alternate ease-in-out;
+
+    .lazy-load-image-background {
+      width: 100%;
+      height: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+
+  .content-wrapper {
+    padding-top: 70px;
+    position: relative;
+    z-index: 1;
+
+    &.tv-layout {
+      display: flex;
+      gap: 2rem;
+
+      .left-column {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        iframe {
+          width: 100%;
+          aspect-ratio: 16/9;
+          border-radius: 14px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7);
+        }
+      }
+
+      .right-column {
+        flex: 1;
+        max-width: 420px;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+    }
+
+    &.movie-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+
+      iframe {
+        width: 100%;
+        aspect-ratio: 16/9;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7);
+      }
+
+      .source-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 15px;
+      }
+    }
+  }
+
+  .source-buttons {
+    background: rgba(2, 12, 27, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 20px;
+    border-radius: 14px;
+
+    .source-dropdown {
+      display: none;
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      background: #173d77;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      cursor: pointer;
+      font-size: 14px;
+
+      option {
+        background: #04152d;
+        padding: 8px;
+      }
+    }
+
+    .source-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 12px;
+    }
+  }
+
+  .button-62 {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #e4e4e7;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 12px;
+    text-align: center;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    font-size: 15px;
+
+    &:hover {
+      background: rgba(248, 158, 0, 0.2);
+      border-color: var(--orange);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(248, 158, 0, 0.25);
+    }
+
+    &:active {
+      transform: scale(0.97);
+    }
+  }
+
+  .source-btn-active {
+    background: var(--gradient);
+    border: 1px solid transparent;
+    color: white;
+    box-shadow: 0 6px 20px rgba(218, 47, 104, 0.45);
+    transform: translateY(-2px);
+  }
+
+  #seasons {
+    background: rgba(2, 12, 27, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 20px;
+    border-radius: 14px;
+
+    #seasonsDropdown {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 10px;
+      background: #173d77;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+
+      &:focus {
+        border-color: var(--pink);
+        box-shadow: 0 0 15px rgba(218, 47, 104, 0.3);
+      }
+
+      option {
+        background: #04152d;
+      }
+    }
+
+    .episode-container-anime {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
+      gap: 10px;
+      max-height: 480px;
+      overflow-y: auto;
+      padding-right: 5px;
+
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: #1c4b91;
+        border-radius: 4px;
+
+        &:hover {
+          background: var(--pink);
+        }
+      }
+    }
+
+    .episode-div {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 10px 8px;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      color: #d4d4d8;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.15);
+        color: #ffffff;
+        transform: translateY(-2px);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      &:active {
+        transform: scale(0.96);
+      }
+    }
+
+    .episode-div-active {
+      background: var(--gradient);
+      border-color: transparent;
+      color: white;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(218, 47, 104, 0.4);
+      transform: translateY(-2px);
+
+      &:hover {
+        background: var(--gradient);
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .player .content-wrapper {
+    &.tv-layout {
+      flex-direction: column;
+
+      .right-column {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .player {
+    padding: 10px;
+
+    .content-wrapper {
+      padding-top: 60px;
+      gap: 1rem;
+    }
+
+    .source-buttons {
+      padding: 15px;
+      gap: 8px;
+    }
+
+    .episode-container-anime {
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      gap: 8px;
+    }
+
+    .button-62,
+    .episode-div {
+      font-size: 13px;
+      padding: 8px;
+    }
+
+    #seasons {
+      padding: 15px;
+
+      #seasonsDropdown {
+        padding: 10px;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .player {
+    padding: 8px;
+
+    .content-wrapper {
+      padding-top: 60px;
+      gap: 0.8rem;
+
+      &.movie-layout {
+        .sources-grid {
+          display: none;
+        }
+      }
+
+      .source-buttons {
+        padding: 12px;
+
+        .source-dropdown {
+          display: block;
+          font-size: 15px;
+        }
+
+        .source-grid {
+          display: none;
+        }
+      }
+
+      .episode-container-anime {
+        grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+        gap: 6px;
+      }
+
+      .button-62,
+      .episode-div {
+        font-size: 13px;
+        padding: 6px;
+      }
+
+      #seasons {
+        padding: 12px;
+
+        #seasonsDropdown {
+          padding: 10px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
