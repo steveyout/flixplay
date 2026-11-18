@@ -88,6 +88,45 @@ export default function RootLayout({ children }) {
           <Footer initialDomainConfig={domainConfig} />
         </ReduxProvider>
 
+        {/* Ad Scripts */}
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `
+              atOptions = {
+                'key' : '3485e31625fba59f28e4266902d3e402',
+                'format' : 'iframe',
+                'height' : 600,
+                'width' : 160,
+                'params' : {}
+              };
+            `,
+          }}
+        />
+        <script
+          type="text/javascript"
+          src="https://bancadeltempoidea.org/22/3485e31625fba59f28e4266902d3e402"
+        />
+
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `
+              atOptions = {
+                'key' : '531e85ad2f6c582567a277de990387e2',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+              };
+            `,
+          }}
+        />
+        <script
+          type="text/javascript"
+          src="https://bancadeltempoidea.org/22/531e85ad2f6c582567a277de990387e2"
+        />
+
         {/* Google Analytics Tag */}
         {gtagId && (
           <>
@@ -98,8 +137,7 @@ export default function RootLayout({ children }) {
             <Script id="google-analytics" strategy="afterInteractive">
               {`
                 window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
+                function gtag(){dataLayer.push(arguments);}\n                gtag('js', new Date());
                 gtag('config', '${gtagId}');
               `}
             </Script>
