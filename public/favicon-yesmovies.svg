@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Dark Background Gradient -->
+    <linearGradient id="ymBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1926"/>
+      <stop offset="100%" stop-color="#050a12"/>
+    </linearGradient>
+
+    <!-- YesMovies Electric Gold / Amber Gradient -->
+    <linearGradient id="ymGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe600"/>
+      <stop offset="40%" stop-color="#ffb703"/>
+      <stop offset="100%" stop-color="#fb8500"/>
+    </linearGradient>
+
+    <!-- Play Triangle Accent Gradient -->
+    <linearGradient id="ymAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff3b0"/>
+      <stop offset="60%" stop-color="#ffb703"/>
+      <stop offset="100%" stop-color="#e85d04"/>
+    </linearGradient>
+
+    <!-- Outer Glow Filter -->
+    <filter id="ymGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="14" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="ymShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#ffb703" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Squircle Base with Border -->
+  <rect x="24" y="24" width="464" height="464" rx="112" fill="url(#ymBg)"/>
+  <rect x="24" y="24" width="464" height="464" rx="112" fill="none" stroke="#ffb703" stroke-width="4" stroke-opacity="0.3"/>
+
+  <!-- Icon Group with Glow -->
+  <g filter="url(#ymGlow)">
+    <!-- Stylized Modern 'Y' Branches -->
+    <!-- Left Branch -->
+    <path d="M 130 135 C 130 125 140 118 152 122 L 232 178 C 242 185 248 196 248 208 L 248 240 L 195 202 L 142 148 C 134 144 130 140 130 135 Z" fill="url(#ymGold)"/>
+    <path d="M 140 132 L 240 232 C 246 238 250 248 250 258 L 250 372 C 250 382 242 390 232 390 C 222 390 214 382 214 372 L 214 266 L 126 156 C 118 146 122 130 134 128 C 136 128 138 129 140 132 Z" fill="url(#ymGold)"/>
+
+    <!-- Right Branch -->
+    <path d="M 372 132 L 262 266 L 262 372 C 262 382 270 390 280 390 C 290 390 298 382 298 372 L 298 258 C 298 248 302 238 308 232 L 386 156 C 394 146 390 130 378 128 C 376 128 374 129 372 132 Z" fill="url(#ymGold)"/>
+
+    <!-- Central Cinematic Play Triangle Symbol Overlay -->
+    <path d="M 226 195 L 340 256 C 352 262 352 276 340 282 L 226 343 C 214 350 200 341 200 327 L 200 211 C 200 197 214 188 226 195 Z" fill="url(#ymAccent)" filter="url(#ymShadow)"/>
+
+    <!-- Inner Core Cutout for 3D cinematic feel -->
+    <polygon points="232,230 306,269 232,308" fill="#08121e" opacity="0.85"/>
+  </g>
+</svg>

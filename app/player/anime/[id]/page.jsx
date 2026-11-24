@@ -25,6 +25,8 @@ export async function generateMetadata({ params }) {
   const pageTitle =
     domainConfig.id === "fmovies"
       ? `Watch ${cleanTitle} Anime Online Free Sub & Dub in HD | FMovies`
+      : domainConfig.id === "yesmovies"
+      ? `Watch ${cleanTitle} Anime Online Free Sub & Dub in HD | YesMovies`
       : `Stream ${cleanTitle} Anime Episodes Free in HD | Netmirror`;
 
   const description = `Watch ${cleanTitle} anime episodes online free with English Subtitles and Dubbed in HD quality on ${domainConfig.brandName}. Fast streaming, no signup.`;

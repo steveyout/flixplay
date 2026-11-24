@@ -1,10 +1,51 @@
 export const DOMAINS = {
   FMOVIES: "fmovies.my",
   NETMIRROR: "netmirror.cfd",
+  YESMOVIES: "yesmovies.space",
 };
 
 export function getDomainConfig(rawHost = "") {
   const host = (rawHost || "").split(":")[0].toLowerCase();
+
+  if (host.includes("yesmovies.space") || host.includes("yesmovie")) {
+    return {
+      id: "yesmovies",
+      domain: "yesmovies.space",
+      brandName: "YesMovies",
+      siteName: "YesMovies",
+      url: "https://yesmovies.space",
+      faviconSvg: "/favicon-yesmovies.svg",
+      faviconPng: "/favicon-yesmovies.png",
+      defaultTitle: "YesMovies | Watch Movies & TV Series Online Free in HD",
+      titleTemplate: "%s | YesMovies - Watch Free Movies Online",
+      description:
+        "Watch latest movies and TV series online free in HD on YesMovies. Stream movies and TV shows online for free without registration at YesMovies official.",
+      keywords: [
+        "yesmovies",
+        "yesmovies.space",
+        "yesmovies to",
+        "yesmovies official",
+        "yes movies",
+        "yesmovie",
+        "watch movies online free",
+        "free hd movies",
+        "yesmovies free streaming",
+        "stream tv series online",
+        "watch free movies without signing up",
+        "yesmovies safe",
+        "yesmovies alternative",
+        "stream movies hd",
+        "full movies online",
+      ],
+      tagline:
+        "Watch Free Movies & TV Shows Online in HD on YesMovies. Millions of movies and series to discover.",
+      heroTitle: "Welcome to YesMovies",
+      heroSubtitle:
+        "Millions of movies, TV shows and series to discover. Stream your favorite movies online in HD on YesMovies.",
+      ogImage: "https://yesmovies.space/og-banner.jpg",
+      twitterHandle: "@yesmovies",
+    };
+  }
 
   if (host.includes("fmovies.my") || host.includes("fmovie")) {
     return {

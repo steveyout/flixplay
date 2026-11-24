@@ -18,6 +18,8 @@ export async function generateMetadata({ params }) {
   const pageTitle =
     domainConfig.id === "fmovies"
       ? `Search results for "${decodedQuery}" - Watch Free on FMovies`
+      : domainConfig.id === "yesmovies"
+      ? `Search results for "${decodedQuery}" - Watch Free on YesMovies`
       : `Search "${decodedQuery}" - Stream Free Movies & Series | Netmirror`;
 
   const description = `Find and stream movies, TV shows, and series matching "${decodedQuery}" online for free in HD quality on ${domainConfig.brandName}.`;

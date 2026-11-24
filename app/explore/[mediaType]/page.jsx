@@ -20,6 +20,8 @@ export async function generateMetadata({ params }) {
   const pageTitle =
     domainConfig.id === "fmovies"
       ? `Explore & Watch Free ${mediaLabel} Online in HD | FMovies`
+      : domainConfig.id === "yesmovies"
+      ? `Explore & Watch Free ${mediaLabel} Online in HD | YesMovies`
       : `Browse ${mediaLabel} - Stream Free HD ${mediaLabel} Online | Netmirror`;
 
   const description = isTv

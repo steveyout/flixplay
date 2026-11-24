@@ -22,6 +22,8 @@ export async function generateMetadata({ params }) {
   const pageTitle =
     domainConfig.id === "fmovies"
       ? `Watch ${channelName} Live Stream Free Online | FMovies`
+      : domainConfig.id === "yesmovies"
+      ? `Watch ${channelName} Live Stream Free Online | YesMovies`
       : `Stream ${channelName} Live HD Free | Netmirror`;
 
   const description = `Watch ${channelName} live broadcast online for free in high definition on ${domainConfig.brandName}. Fast buffering and smooth streaming.`;

@@ -29,6 +29,8 @@ export async function generateMetadata({ params }) {
     const pageTitle =
       domainConfig.id === "fmovies"
         ? `Watch ${title}${yearSuffix} Online Free in HD | FMovies`
+        : domainConfig.id === "yesmovies"
+        ? `Watch ${title}${yearSuffix} Online Free in HD | YesMovies`
         : `Stream ${title}${yearSuffix} Full HD Free | Netmirror`;
 
     const description =

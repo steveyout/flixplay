@@ -16,6 +16,8 @@ export async function generateMetadata() {
   const pageTitle =
     domainConfig.id === "fmovies"
       ? `Watch Live TV Channels Online Free | FMovies`
+      : domainConfig.id === "yesmovies"
+      ? `Watch Live TV Channels Online Free | YesMovies`
       : `Live TV Streaming - Watch Live Channels Online Free HD | Netmirror`;
 
   const description = `Stream live television channels for news, movies, entertainment, and sports online free in HD on ${domainConfig.brandName}.`;
